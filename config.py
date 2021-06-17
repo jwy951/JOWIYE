@@ -18,15 +18,21 @@ class Config:
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_GREEN_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_GREEN_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://",1)
+        pass
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:kipkirui@localhost/blogs_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:30196642@localhost/blogs_test'
+    
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:kipkirui@localhost/blogs'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:30196642@localhost/blogs'
     
     DEBUG = True
+    
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
