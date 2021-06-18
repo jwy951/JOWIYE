@@ -35,7 +35,7 @@ def index():
 
     getquotes = getQuotes()
     message= "Welcome to Blog Website!!"
-    title= 'Blog-web!'
+    title= 'Blogs Arena!'
     return render_template('index.html',getquotes = getquotes,message=message,title=title)
 
 
