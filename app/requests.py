@@ -1,4 +1,3 @@
-# type:ignore
 import requests,json
 from .models import Quote
 
@@ -12,13 +11,13 @@ def configure_request(app):
 def getQuotes(): 
     # request.urlopen(base_url):
         
-        lll = requests.get(base_url).json()
+        quote = requests.get(base_url).json()
        
-        r = []
-        id = lll.get('id')
-        author = lll.get('author')
-        quote = lll.get('quote')
+        Q = []
+        id = quote.get('id')
+        author = quote.get('author')
+        quote =quote.get('quote')
 
         quoteObject = Quote(id,author,quote)
-        r.append(quoteObject)
-        return r
+        Q.append(quoteObject)
+        return Q
